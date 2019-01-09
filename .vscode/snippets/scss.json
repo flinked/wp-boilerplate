@@ -84,4 +84,11 @@
     ],
     "description": "custome media query"
   },
+  "object_fit": {
+    "prefix": "flinked-obj",
+    "body": [
+      "@include obj(\\$size: ${1|cover,contain|}, \\$horizontal: ${2|center,left,right|}, \\$vertical: ${3|center,top,bottom|});"
+    ],
+    "description": "custome media query"
+  }
 }
