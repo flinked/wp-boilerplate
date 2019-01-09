@@ -14,10 +14,13 @@ let gulp         = require( 'gulp' ),
     sourcemaps   = require( 'gulp-sourcemaps' ),
     watchify     = require( 'watchify' );
     bulkSass     = require('gulp-sass-bulk-import');
+    autoprefixer = require('gulp-autoprefixer');
 
 /**
  * Params
  */
+
+
 
 /**
  * Scripts bundle
@@ -71,6 +74,10 @@ gulp.task( 'styles', function()
         .pipe( gulp_sass( {
             compress: false
         } ) )
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .on( 'error', gulp_notify.onError( { title: 'Gulp: styles' } ) )
         .pipe( sourcemaps.init( { loadMaps: true } ) )
         .pipe( sourcemaps.write( './' ) )
@@ -92,7 +99,11 @@ gulp.task( 'build-scripts', function()
 gulp.task( 'build-styles', function()
 {
     return gulp.src( '../dist/assets/stylesheet/main.css' )
-        .pipe( gulp_cssnano() )
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp_cssnano())
         .pipe( gulp.dest( '../dist/assets/stylesheet' ) )
 } )
 
