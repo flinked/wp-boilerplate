@@ -111,24 +111,26 @@ gulp.task( 'remove-maps', function()
         .pipe( gulp_clean( { force: true, read: false } ) )
 } )
 
-gulp.task( 'build', [ 'build-scripts', 'build-styles', 'remove-maps' ], function()
-{
-    return gulp.src( './' )
+
+// function watchFile() {
+//     gulp.watch( '../sources/sass/**', ['styles'] )
+// }
+
+gulp.task('watch', function() {
+    gulp.watch( '../sources/sass/**', gulp.series('styles') )
+})
+
+
+gulp.task('build', gulp.series (gulp.parallel('build-scripts', 'build-styles', 'remove-maps'),
+    function (done) {
+        return gulp.src( './' )
         .pipe( gulp_notify( {
             title  : 'Gulp: build',
             message: 'success'
         } ) )
-} )
+    }
+));
 
-/**
- * Default
- */
-gulp.task( 'default', function()
-{
-    // Scripts
-    gulp.start( 'scripts' )
-
-    // Styles
-    gulp.start( 'styles' )
-    gulp.watch( '../sources/sass/**', [ 'styles' ] )
-} )
+gulp.task('default', gulp.series (gulp.parallel('styles', 'scripts', 'watch'),
+    function (done) { }
+));
