@@ -15,8 +15,9 @@ class MobileMenu
       this.openButton.addEventListener('click', (e) => {
         e.preventDefault()
         if(this.open === false) {
+          console.log('open')
           this.open = true
-          this.menu.classList.add('active')
+          this.menu.classList.add('show')
         }
       })
 
@@ -24,7 +25,7 @@ class MobileMenu
         e.preventDefault()
         if(this.open === true) {
           this.open = false
-          this.menu.classList.remove('active')
+          this.menu.classList.remove('show')
         }
       })
     }
