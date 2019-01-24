@@ -13,7 +13,6 @@ let gulp         = require( 'gulp' ),
     gulp_notify  = require( 'gulp-notify' ),
     sourcemaps   = require( 'gulp-sourcemaps' ),
     watchify     = require( 'watchify' );
-    bulkSass     = require('gulp-sass-bulk-import');
     autoprefixer = require('gulp-autoprefixer');
 
 /**
@@ -70,7 +69,6 @@ gulp.task( 'scripts', function()
 gulp.task( 'styles', function()
 {
     return gulp.src( '../sources/sass/main.scss' )
-        .pipe(bulkSass())
         .pipe( gulp_sass( {
             compress: false
         } ) )
