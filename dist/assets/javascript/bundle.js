@@ -1,1 +1,20 @@
-!function(){function r(n,e,t){function o(u,f){if(!e[u]){if(!n[u]){var c="function"==typeof require&&require;if(!f&&c)return c(u,!0);if(i)return i(u,!0);var a=new Error("Cannot find module '"+u+"'");throw a.code="MODULE_NOT_FOUND",a}var d=e[u]={exports:{}};n[u][0].call(d.exports,function(r){return o(n[u][1][r]||r)},d,d.exports,r,n,e,t)}return e[u].exports}for(var i="function"==typeof require&&require,u=0;u<t.length;u++)o(t[u]);return o}return r}()({1:[function(r,n,e){"use strict";function t(){(new LookSlider).init()}window.onload=t},{}]},{},[1]);
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+"use strict";
+
+// import LookSlider from 'lookSlider'
+
+function init() {
+
+   /**
+   * look slider
+   */
+
+   var lookSlider = new LookSlider();
+   lookSlider.init();
+}
+
+window.onload = init;
+
+},{}]},{},[1])
+
+//# sourceMappingURL=bundle.js.map
